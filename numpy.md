@@ -92,10 +92,67 @@ matrix.max(axis=0) # [20, 20, 20, 25]
 import numpy as np
 np.arange(15)
 [0 1 2 3 4 5 6 7 8 9 10 11 12 13 14]
-np.arange(15).reshape(3, 5)
+a = np.arange(15).reshape(3, 5)
 array([[0, 1, 2, 3, 4],
        [5, 6, 7, 8, 9],
        [10, 11, 12, 13, 14]])
 a.shape
 # (3, 5)
 ```
+### 查看维度
+```python
+a.ndimo # 2
+```
+### 查看元素总数
+```python
+a.size
+```
+### 创建0，1填充的矩阵
+```python
+np.zeros((3, 4))
+np.ones((2, 3, 4), dtype=np.int32)
+```
+### 创建固定间隔的序列
+```python
+np.arange(10, 30, 5)
+```
+### 创建矩阵填充随机数
+```python
+np.random.random((3, 4))
+```
+### 创建已知头尾步长相等的n个数
+```python
+from numpy import pi
+np.linspace(0, 2 * pi, 100)
+```
+### 矩阵每个元素map函数
+```python
+np.sin(np.linspace(0, 2 * pi, 100))
+```
+### 矩阵的数学运算
+```python
+a = np.array([20, 30, 40, 50])
+b = np.arange(4)
+a - b # [20, 29, 38, 47]
+a - 1 # [19, 29, 39, 49]
+b**2  # [0, 1, 4, 9]
+a < 35 # [True, True, False, False] 这个上面有提到过
+```
+> 不知道你有没有注意到，shape相同的时候，会按位计算，读者可以试试其他运算，比如`*` `/` `+`
+### 矩阵相乘
+```python
+A = np.array([[1, 1],
+              [0, 1]])
+B = np.array([[2, 0],
+              [3, 4]])
+A * B
+# [[2, 0],
+#  [0, 4]]
+```
+### 数量积，点积，点乘，内积
+```python
+A.dot(B)
+# [[5, 4],
+#  [3, 4]]
+```
+> 另一种写法是`np.dot(A, B)`

@@ -1,3 +1,3 @@
 ### My machine learning notebook
 
- - numpy
+ - [numpy](https://github.com/tmpbook/machine-learning-notebook/blob/master/numpy.md)
