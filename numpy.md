@@ -156,3 +156,43 @@ A.dot(B)
 #  [3, 4]]
 ```
 > 另一种写法是`np.dot(A, B)`
+### `e` 的幂
+```python
+import numpy as np
+B = np.arange(3)
+np.exp(B)
+# [1. 2.71828183 7.3890561]
+```
+### 开方
+```python
+np.sqrt(2)
+# [0. 1. 1.41421356]
+```
+### 矩阵变向量（flatten），改变矩阵 shape，转置
+```python
+a = np.floor(10*np.random.random((3, 4)))
+a.ravel()
+
+a.shape = 2, 6 # 直接改变 shape
+a.shape = 2, -1 # 改变 shape 但是列数自动计算
+a.shape = -1, 6 # 改变 shape 但是行数自动计算
+
+a.T # 返回转置矩阵，a 本身不受影响
+```
+### 矩阵拼接与切分
+```python
+np.hstack((a, b)) # 样本数量不变，特征增加
+np.vstack((a, b)) # 样本数量增减，特征不变
+
+np.hsplit(a, 3)   # 将 a 切分为三份，每份样本数量不变，特征减少
+np.hsplit(a, (3, 4)) # 在3，4位置分别切分
+```
+### 浅复制
+```python
+c = a.view()
+# 指向的矩阵不同，但是矩阵中的元素是公用的，举个例子就是一个矩阵变换了 shape 不会影响另一个，但是如果一个矩阵的元素被改变，那么第二个矩阵相应的元素也会改变
+```
+### 深复制
+```python
+# 就是广义的复制咯
+```
