@@ -196,3 +196,9 @@ c = a.view()
 ```python
 # 就是广义的复制咯
 ```
+### 列最大值
+```py
+index = data.argmax(axis=0)
+data_max = data[index, range(data.shape[1])]
+```
+
